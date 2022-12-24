@@ -39,13 +39,29 @@ namespace CaixaEletronico
                 b = new Banco(conta, nome);
             }
 
-
+            Console.WriteLine();
             Console.WriteLine("Dados da Conta:");
             Console.Write(b);
 
-            Console.WriteLine("Digite o valor do TED: ");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.Write("Digite o valor do TED: ");
             double transted = double.Parse(Console.ReadLine());
             b = new Banco(transted);
+
+            Console.WriteLine();
+            Console.WriteLine("Dados da Conta: " + b);
+
+            Console.WriteLine();
+            Console.Write("Digite o valor de Saque: ");
+            double saque = double.Parse(Console.ReadLine());
+            if (saque >= 0)
+            {
+                b = new Banco(saque + 5);
+            }
+            
+
+            Console.WriteLine();
             Console.WriteLine("Dados da Conta: " + b);
 
 

@@ -13,6 +13,7 @@ namespace CaixaEletronico
         private char _deposito;
         private double _valordeposito;
         private double _ted;
+        private double _saque;
 
         public Banco(int conta, string nome)
         {
@@ -33,11 +34,26 @@ namespace CaixaEletronico
             _ted = transted;
         }
 
+        public double transted
+        {
+            get { return _ted; }
+        }
+
+        public double valordeposito
+        {
+            get { return _valordeposito; }
+        }
+
+        public double saque
+        {
+            get { return _saque; }
+        }
 
         public double Saldo()
         {
-            return _valordeposito + _ted;
+            return (_valordeposito + _ted - _saque);
         }
+
 
         public override string ToString()
         {
