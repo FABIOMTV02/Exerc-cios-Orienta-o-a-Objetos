@@ -47,9 +47,7 @@ namespace CaixaEletronico
             Console.WriteLine();
             Console.Write("Digite o valor do TED: ");
             double transted = double.Parse(Console.ReadLine());
-            b = new Banco(transted);
-
-            Console.WriteLine();
+            
             Console.WriteLine("Dados da Conta: " + b);
 
             Console.WriteLine();
