@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,59 +9,36 @@ namespace CaixaEletronico
 {
     internal class Banco
     {
-        private int _conta;
-        private string _nome;
-        private char _deposito;
-        private double _valordeposito;
-        private double _ted;
-        private double _saque;
+        public int Conta { get; private set; }
+        public string Nome { get;  set; }
+        public double Saldo { get; private set; }
 
         public Banco(int conta, string nome)
         {
-            _conta = conta;
-            _nome = nome;
+            Conta = conta;
+            Nome = nome;
         }
 
-        public Banco(int conta, string nome, char deposito, double valordeposito)
+        public Banco(int conta, string nome, double depositoinicial ) : this(conta, nome)
         {
-            _conta = conta;
-            _nome = nome;
-            _deposito = deposito;
-            _valordeposito = valordeposito;
+            Deposito(depositoinicial);
         }
 
-        public Banco(double transted)
+        public void Deposito(double quantia)
         {
-            _ted = transted;
+            Saldo += quantia;
         }
 
-        public double transted
+        public void Saque(double quantia)
         {
-            get { return _ted; }
+            Saldo -= quantia;
+            Saldo -= 5;
         }
-
-        public double valordeposito
-        {
-            get { return _valordeposito; }
-        }
-
-        public double saque
-        {
-            get { return _saque; }
-        }
-
-        public double Saldo()
-        {
-            return (_valordeposito + _ted - _saque);
-        }
-
-
         public override string ToString()
         {
-            return "Conta: " + _conta
-                + ", Titular: " + _nome
-                + ", Saldo: " + Saldo()
-                + " ";
+            return "Conta: " + Conta
+                + ", Titular: " + Nome
+                + ", Saldo: " + Saldo;
         }
     }
 }

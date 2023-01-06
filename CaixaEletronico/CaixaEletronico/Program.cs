@@ -11,8 +11,7 @@ namespace CaixaEletronico
         static void Main(string[] args)
         {
             //Chamando Classe
-            Banco b;
-
+            Banco contabancaria;
 
             Console.WriteLine("Entre com os dados da conta: ");
             
@@ -28,39 +27,35 @@ namespace CaixaEletronico
             if (deposito == 's' || deposito == 'S')
             {
                 Console.Write("Qual o valor do depósito?: ");
-                double valordeposito = double.Parse(Console.ReadLine());
+                double depositoinicial = double.Parse(Console.ReadLine());
                 
                 //Chamando Classe
-                b = new Banco(conta, nome, deposito, valordeposito);
+                contabancaria = new Banco(conta, nome, depositoinicial);
             }
             else
             {
                 //Chamando Classe
-                b = new Banco(conta, nome);
+                contabancaria = new Banco(conta, nome);
             }
 
             Console.WriteLine();
             Console.WriteLine("Dados da Conta:");
-            Console.Write(b);
+            Console.Write(contabancaria);
 
             Console.WriteLine();
             Console.WriteLine();
             Console.Write("Digite o valor do TED: ");
-            double transted = double.Parse(Console.ReadLine());
+            double quantia = double.Parse(Console.ReadLine());
+            contabancaria.Deposito(quantia);
             
-            Console.WriteLine("Dados da Conta: " + b);
+            Console.WriteLine("Dados da Conta: " + contabancaria);
 
             Console.WriteLine();
             Console.Write("Digite o valor de Saque: ");
-            double saque = double.Parse(Console.ReadLine());
-            if (saque >= 0)
-            {
-                b = new Banco(saque + 5);
-            }
-            
-
+            quantia = double.Parse(Console.ReadLine());
+            contabancaria.Saque(quantia);
             Console.WriteLine();
-            Console.WriteLine("Dados da Conta: " + b);
+            Console.WriteLine("Dados da Conta: " + contabancaria);
 
 
 
